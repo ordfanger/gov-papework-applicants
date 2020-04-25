@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: applicants-service
+  cloud:
+    consul:
+      config:
+        format: yaml
+        data-key: data.yml
+      host: localhost
+      port: 8500
