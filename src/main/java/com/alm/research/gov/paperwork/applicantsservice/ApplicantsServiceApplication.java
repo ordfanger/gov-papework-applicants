@@ -5,9 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
 import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClients;
+import org.springframework.data.mongodb.config.EnableMongoAuditing;
 
 @SpringBootApplication
 @EnableDiscoveryClient
+@EnableMongoAuditing
 @LoadBalancerClients({
         @LoadBalancerClient(name = "applicants-service", configuration = ClientConfiguration.class)
 })
