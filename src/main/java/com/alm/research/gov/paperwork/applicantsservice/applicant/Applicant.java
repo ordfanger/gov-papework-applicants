@@ -1,13 +1,12 @@
 package com.alm.research.gov.paperwork.applicantsservice.applicant;
 
+import com.alm.research.gov.paperwork.applicantsservice.models.Meta;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.domain.Persistable;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
@@ -17,10 +16,8 @@ public class Applicant implements Persistable<String> {
     @Id
     private String id;
 
-    @NotNull
     private Address address;
 
-    @NotNull
     private Identity identity;
 
     private List<com.alm.research.gov.paperwork.applicantsservice.applicant.Document> documents;
@@ -34,4 +31,6 @@ public class Applicant implements Persistable<String> {
     public boolean isNew() {
         return this.id == null;
     }
+
+    private Meta meta;
 }

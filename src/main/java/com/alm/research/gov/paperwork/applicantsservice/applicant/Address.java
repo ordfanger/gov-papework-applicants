@@ -3,22 +3,21 @@ package com.alm.research.gov.paperwork.applicantsservice.applicant;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 
 @Data
 public class Address {
-    @NotBlank
+    @NotBlank(message = "country is missing in request body.")
     private String country;
 
-    @NotEmpty
+    @NotBlank(message = "city is missing in request body.")
     private String city;
 
-    @NotEmpty
+    @NotBlank(message = "street is missing in request body.")
     private String street;
 
-    @NotEmpty
+    @NotBlank(message = "postcode is missing in request body.")
     private String postcode;
 
-    @NotEmpty
+    @NotBlank(message = "houseNumber is missing in request body.")
     private String houseNumber;
 }

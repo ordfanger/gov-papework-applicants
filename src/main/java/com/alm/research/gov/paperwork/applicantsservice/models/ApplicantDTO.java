@@ -12,4 +12,5 @@ public class ApplicantDTO {
     private Address address;
     private Identity identity;
     private Date registered_at;
+    private Meta meta;
 }

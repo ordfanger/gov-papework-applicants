@@ -5,8 +5,6 @@ import com.alm.research.gov.paperwork.applicantsservice.applicant.Identity;
 import lombok.Data;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -14,11 +12,11 @@ import java.io.Serializable;
 public class ApplicantRequestModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @NotNull
+    @NotNull(message = "address is missing in request body.")
     @Valid
     private Address address;
 
-    @NotNull
+    @NotNull(message = "identity is missing in request body.")
     @Valid
     private Identity identity;
 }

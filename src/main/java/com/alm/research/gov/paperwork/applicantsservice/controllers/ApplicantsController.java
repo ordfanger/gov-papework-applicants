@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.io.IOException;
 
 @AllArgsConstructor
 @RestController
@@ -25,7 +26,7 @@ public class ApplicantsController {
     @PostMapping(path = "/register",
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ApplicantResponseModel> createApplicant(@Valid @RequestBody ApplicantRequestModel applicantRequestModel) {
+    public ResponseEntity<ApplicantResponseModel> createApplicant(@Valid @RequestBody ApplicantRequestModel applicantRequestModel) throws IOException {
         ApplicantDTO applicantDTO = modelMapper.map(applicantRequestModel, ApplicantDTO.class);
 
         Applicant createdApplicant = applicantsService.createApplicant(applicantDTO);
