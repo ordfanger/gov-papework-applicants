@@ -2,7 +2,6 @@ package com.alm.research.gov.paperwork.applicantsservice.exceptions.handlers;
 
 import com.alm.research.gov.paperwork.applicantsservice.exceptions.DefaultError;
 import com.fasterxml.jackson.core.JsonParseException;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,7 +13,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-@Slf4j
+
 @ControllerAdvice
 @Order()
 public class GlobalExceptionHandler {

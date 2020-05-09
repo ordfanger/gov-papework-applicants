@@ -7,4 +7,5 @@ import java.io.IOException;
 
 public interface ApplicantsService {
     Applicant createApplicant(ApplicantDTO applicantDTO) throws IOException;
+    Applicant getApplicantById(String applicantId);
 }

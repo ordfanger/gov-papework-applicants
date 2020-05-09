@@ -35,4 +35,15 @@ public class ApplicantsController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(applicantResponseModel);
     }
+
+    @GetMapping(path = "/applicant/{applicantId}",
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ApplicantResponseModel> getApplicant(@PathVariable String applicantId) {
+        Applicant applicant = applicantsService.getApplicantById(applicantId);
+
+        ApplicantResponseModel applicantResponseModel = modelMapper.map(applicant, ApplicantResponseModel.class);
+
+        return ResponseEntity.ok(applicantResponseModel);
+    }
 }
