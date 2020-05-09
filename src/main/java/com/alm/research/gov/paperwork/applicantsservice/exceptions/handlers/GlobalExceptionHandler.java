@@ -2,6 +2,7 @@ package com.alm.research.gov.paperwork.applicantsservice.exceptions.handlers;
 
 import com.alm.research.gov.paperwork.applicantsservice.exceptions.DefaultError;
 import com.fasterxml.jackson.core.JsonParseException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,6 +17,7 @@ import java.util.Map;
 
 @ControllerAdvice
 @Order()
+@Slf4j
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = {RuntimeException.class})
@@ -29,6 +31,8 @@ public class GlobalExceptionHandler {
             message.put("message", "Invalid body");
             return ResponseEntity.badRequest().contentType(MediaType.APPLICATION_JSON).body(message);
         }
+
+        log.info(e.getMessage());
 
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)

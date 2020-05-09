@@ -3,6 +3,7 @@ package com.alm.research.gov.paperwork.applicantsservice.controllers;
 import com.alm.research.gov.paperwork.applicantsservice.applicant.Applicant;
 import com.alm.research.gov.paperwork.applicantsservice.models.ApplicantDTO;
 import com.alm.research.gov.paperwork.applicantsservice.models.request.ApplicantRequestModel;
+import com.alm.research.gov.paperwork.applicantsservice.models.request.ApplicantUpdateRequestModel;
 import com.alm.research.gov.paperwork.applicantsservice.models.response.ApplicantResponseModel;
 import com.alm.research.gov.paperwork.applicantsservice.services.ApplicantsService;
 import lombok.AllArgsConstructor;
@@ -41,6 +42,20 @@ public class ApplicantsController {
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ApplicantResponseModel> getApplicant(@PathVariable String applicantId) {
         Applicant applicant = applicantsService.getApplicantById(applicantId);
+
+        ApplicantResponseModel applicantResponseModel = modelMapper.map(applicant, ApplicantResponseModel.class);
+
+        return ResponseEntity.ok(applicantResponseModel);
+    }
+
+    @PutMapping(path = "/applicant/{applicantId}")
+    public ResponseEntity<ApplicantResponseModel> updateApplicant(
+            @PathVariable String applicantId,
+            @Valid @RequestBody ApplicantUpdateRequestModel applicantUpdateRequestModel) {
+
+        ApplicantDTO applicantDTO = modelMapper.map(applicantUpdateRequestModel, ApplicantDTO.class);
+
+        Applicant applicant = applicantsService.updateApplicant(applicantId, applicantDTO);
 
         ApplicantResponseModel applicantResponseModel = modelMapper.map(applicant, ApplicantResponseModel.class);
 
