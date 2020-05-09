@@ -1,4 +1,4 @@
-package com.alm.research.gov.paperwork.applicantsservice.applicant;
+package com.alm.research.gov.paperwork.applicantsservice.models.applicant;
 
 import lombok.Data;
 

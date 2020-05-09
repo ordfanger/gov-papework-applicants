@@ -1,4 +1,4 @@
-package com.alm.research.gov.paperwork.applicantsservice.applicant;
+package com.alm.research.gov.paperwork.applicantsservice.models.applicant;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

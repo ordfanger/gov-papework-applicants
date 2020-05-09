@@ -1,4 +1,4 @@
-package com.alm.research.gov.paperwork.applicantsservice.applicant;
+package com.alm.research.gov.paperwork.applicantsservice.models.applicant;
 
 import com.alm.research.gov.paperwork.applicantsservice.models.Meta;
 import lombok.Data;
@@ -20,7 +20,7 @@ public class Applicant implements Persistable<String> {
 
     private Identity identity;
 
-    private List<com.alm.research.gov.paperwork.applicantsservice.applicant.Document> documents;
+    private List<com.alm.research.gov.paperwork.applicantsservice.models.applicant.Document> documents;
 
     @CreatedDate
     private Date registered_at;

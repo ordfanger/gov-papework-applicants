@@ -1,7 +1,7 @@
 package com.alm.research.gov.paperwork.applicantsservice.models.request;
 
-import com.alm.research.gov.paperwork.applicantsservice.applicant.Address;
-import com.alm.research.gov.paperwork.applicantsservice.applicant.Identity;
+import com.alm.research.gov.paperwork.applicantsservice.models.applicant.Address;
+import com.alm.research.gov.paperwork.applicantsservice.models.applicant.Identity;
 import lombok.Data;
 
 import javax.validation.Valid;
